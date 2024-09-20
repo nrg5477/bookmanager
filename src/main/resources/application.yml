@@ -1,0 +1,5 @@
+spring:
+  h2:
+    console:
+      enabled: true
+#      H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:8207b4e6-ef4f-49ed-a6dd-8bb50805a80e'
