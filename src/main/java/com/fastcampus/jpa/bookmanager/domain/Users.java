@@ -1,8 +1,6 @@
 package com.fastcampus.jpa.bookmanager.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -13,9 +11,9 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 @Builder
 @Entity
-public class User {
+public class Users {
     @Id //entity에는 pk가 필요함.
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NonNull
