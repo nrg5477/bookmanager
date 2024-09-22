@@ -92,5 +92,12 @@ class UsersRepositoryTest {
 //        Example<Users> example2 = Example.of(user, matcher2);
 //
 //        userRepository.findAll(example2).forEach(System.out::println);
+
+        userRepository.save(new Users("david","david@gmail.com"));
+
+        Users user = userRepository.findById(1L).orElseThrow(RuntimeException::new);
+        user.setEmail("nrg5477-updated@gmail.com");
+        userRepository.save(user);
+
     }
 }
