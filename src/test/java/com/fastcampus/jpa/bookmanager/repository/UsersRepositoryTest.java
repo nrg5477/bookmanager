@@ -5,13 +5,17 @@ import jakarta.transaction.Transactional;
 import org.apache.catalina.User;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
+import org.mockito.internal.matchers.EndsWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.*;
 import org.springframework.test.context.TestPropertySource;
 
 import java.util.List;
 import java.util.Optional;
+
+import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.contains;
+import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.endsWith;
 
 @SpringBootTest
 @TestPropertySource(locations = "classpath:application.yml")
@@ -35,7 +39,58 @@ class UsersRepositoryTest {
         //Users user = userRepository.getOne(1L); //@Transactional 필요
         //System.out.println(user);
 
-        Optional<Users> user = userRepository.findById(1L);
-        System.out.println(user);
+//        Optional<Users> user = userRepository.findById(1L);
+//        System.out.println(user);
+
+//        userRepository.save(new Users("new nrg5477","newnrg5477@gmail.com"));
+//        userRepository.flush();
+//        userRepository.findAll().forEach(System.out::println);
+
+//        long count = userRepository.count();
+//        System.out.println(count);
+
+//        boolean exists = userRepository.existsById(1L);
+//        System.out.println(exists);
+
+//        userRepository.delete(userRepository.findById(1L).orElseThrow(RuntimeException::new));
+
+//        userRepository.deleteAll(userRepository.findAllById(Lists.newArrayList(1L, 3L)));
+//        userRepository.findAll().forEach(System.out::println);
+
+//        userRepository.deleteInBatch(userRepository.findAllById(Lists.newArrayList(1L, 3L)));
+//        userRepository.findAll().forEach(System.out::println);
+
+//        userRepository.deleteAllInBatch();
+//        userRepository.findAll().forEach(System.out::println);
+
+        //일반 delete문은 select문을 통해서 있는지 확인하고 지우지만,
+        //delete batch 문은 바로 지워버림.
+
+//        //Paging
+//        Page<Users> users = userRepository.findAll(PageRequest.of(1, 3)); //pagerequest는 pagealbe의 구현체
+//        System.out.println("page : " + users);
+//        System.out.println("total elements : " + users.getTotalElements());
+//        System.out.println("total pages : " + users.getTotalPages());
+//        System.out.println("number of elements : " + users.getNumberOfElements());
+//        System.out.println("sort : " + users.getSort());
+//        System.out.println("size : " + users.getSize());
+//        users.getContent().forEach(System.out::println);
+
+//        //Query By Example
+//        ExampleMatcher matcher = ExampleMatcher.matching()
+//                .withIgnorePaths("name")
+//                .withMatcher("email", endsWith());
+//
+//        Example<Users> example = Example.of(new Users("nr", "gmail.com"), matcher);
+//        userRepository.findAll(example).forEach(System.out::println);
+//
+//        //-------------------------또다른 방법
+//        Users user = new Users();
+//        user.setEmail("naver");
+//
+//        ExampleMatcher matcher2 = ExampleMatcher.matching().withMatcher("email", contains());
+//        Example<Users> example2 = Example.of(user, matcher2);
+//
+//        userRepository.findAll(example2).forEach(System.out::println);
     }
 }
