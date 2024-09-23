@@ -100,4 +100,22 @@ class UsersRepositoryTest {
         userRepository.save(user);
 
     }
+
+    @Test
+    void select() {
+        System.out.println(userRepository.findByName("nrg5477"));
+
+        System.out.println("findByEmail : " + userRepository.findByEmail("nrg5477@gmail.com"));
+        System.out.println("getByEmail : " + userRepository.getByEmail("nrg5477@gmail.com"));
+        System.out.println("readByEmail : " + userRepository.readByEmail("nrg5477@gmail.com"));
+        System.out.println("queryByEmail : " + userRepository.queryByEmail("nrg5477@gmail.com"));
+        System.out.println("searchByEmail : " + userRepository.searchByEmail("nrg5477@gmail.com"));
+        System.out.println("streamByEmail : " + userRepository.streamByEmail("nrg5477@gmail.com"));
+        System.out.println("findUsersByEmail : " + userRepository.findUsersByEmail("nrg5477@gmail.com"));
+
+        System.out.println("findTop1ByName : " + userRepository.findTop1ByName("nrg5477"));
+        System.out.println("findFirstByName : " + userRepository.findFirstByName("nrg5477"));
+
+        System.out.println("findByEmailAndName : "+userRepository.findByEmailAndName("nrg5477@gmail.com", "nrg5477"));
+    }
 }
