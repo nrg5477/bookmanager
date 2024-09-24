@@ -3,6 +3,8 @@ package com.fastcampus.jpa.bookmanager.repository;
 
 import com.fastcampus.jpa.bookmanager.domain.Users;
 import org.apache.catalina.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -65,4 +67,7 @@ public interface UserRepository extends JpaRepository<Users, Long> {//entity 타
     List<Users> findFirstByNameOrderByIdDescEmailAsc(String name); //두번째 조건으로 추가 정렬(같은것이 있을때)
 
     List<Users> findFirstByName(String name, Sort sort);
+
+    //쿼리메소드로 페이징 처리하기.
+    Page<Users> findByName(String name, Pageable pageable);
 }

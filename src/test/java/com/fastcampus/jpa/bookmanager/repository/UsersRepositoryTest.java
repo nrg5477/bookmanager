@@ -156,6 +156,7 @@ class UsersRepositoryTest {
 
 
         //PagingTest
+        System.out.println("findByName : " + userRepository.findByName("nrg5477", PageRequest.of(0, 1, Sort.by(Sort.Order.desc("id")))).getTotalElements());
 
 
     }
