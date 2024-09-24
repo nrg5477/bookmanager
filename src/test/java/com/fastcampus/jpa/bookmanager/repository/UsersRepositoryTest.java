@@ -128,5 +128,18 @@ class UsersRepositoryTest {
         System.out.println("findByCreatedAtBetween : " + userRepository.findByCreatedAtBetween(LocalDateTime.now().minusDays(1L), LocalDateTime.now().plusDays(1L)));
         System.out.println("findByIdBetween : " + userRepository.findByIdBetween(1L, 3L));
 
+        System.out.println("findByIdIsNotNull : " + userRepository.findByIdIsNotNull());
+        System.out.println("findByAddressIsNotEmpty : " + userRepository.findByAddressIsNotEmpty()); //collection type의 notEmpty 확인
+
+
+        System.out.println("findByNameIn : " + userRepository.findByNameIn(Lists.newArrayList("nrg5477", "nrg4577")));
+
+        System.out.println("findByNameStartingWith : " + userRepository.findByNameStartingWith("nrg"));
+        System.out.println("findByNameEndingWith : " + userRepository.findByNameEndingWith("477"));
+        System.out.println("findByNameContaining : " + userRepository.findByNameContaining("g54"));
+
+        System.out.println("findByNameLike: " + userRepository.findByNameLike("%g54%"));
+
+
     }
 }

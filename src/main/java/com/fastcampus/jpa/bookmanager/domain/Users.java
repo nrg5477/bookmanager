@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -25,4 +26,7 @@ public class Users {
     private LocalDateTime updatedAt;
 
     //파일이 컴파일될때 delombok 되서 실행됨.
+
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Address> address;
 }
