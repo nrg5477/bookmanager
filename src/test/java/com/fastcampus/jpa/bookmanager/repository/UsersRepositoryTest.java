@@ -142,4 +142,21 @@ class UsersRepositoryTest {
 
 
     }
+
+    @Test
+    void pagingAndSortingTest() {
+        //SortingTest
+        System.out.println("findTop1ByName : " + userRepository.findTop1ByName("nrg5477"));
+        System.out.println("findTop1ByNameOrderByIdDesc : " + userRepository.findTop1ByNameOrderByIdDesc("nrg5477"));//last1이라는게 없어서 이름으로 사용됨.
+
+        System.out.println("findFirstByNameOrderByIdDescEmailAsc : " + userRepository.findFirstByNameOrderByIdDescEmailAsc("nrg5477"));
+        //해당 방식은 이름이 길어져서 가독성이 낮음
+        System.out.println("findFirstByName : " + userRepository.findFirstByName("nrg5477", Sort.by(Sort.Order.desc("id"), Sort.Order.asc("email"))));
+        //가독성을 높이기 위해 하나의 메소드로 Sort방식을 확장하여 사용함. 이방식이 메리트가 높음
+
+
+        //PagingTest
+
+
+    }
 }

@@ -3,6 +3,7 @@ package com.fastcampus.jpa.bookmanager.repository;
 
 import com.fastcampus.jpa.bookmanager.domain.Users;
 import org.apache.catalina.User;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDateTime;
@@ -57,4 +58,11 @@ public interface UserRepository extends JpaRepository<Users, Long> {//entity 타
     List<Users> findUsersByNameIs(String name);
     List<Users> findUsersByName(String name);
     List<Users> findUsersByNameEquals(String name);
+
+    //쿼리 메소드로 정렬 시켜보기
+    List<Users> findLast1ByName(String name);
+    List<Users> findTop1ByNameOrderByIdDesc(String name);
+    List<Users> findFirstByNameOrderByIdDescEmailAsc(String name); //두번째 조건으로 추가 정렬(같은것이 있을때)
+
+    List<Users> findFirstByName(String name, Sort sort);
 }
