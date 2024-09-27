@@ -39,4 +39,6 @@ public class Users {
 
     @OneToMany(fetch = FetchType.EAGER)
     private List<Address> address;
+
+    //
 }
