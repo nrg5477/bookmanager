@@ -186,4 +186,46 @@ class UsersRepositoryTest {
 
         System.out.println(userRepository.findRawRecord().get("gender"));
     }
+
+    @Test
+    void listenerTest() {
+        Users user = new Users();
+        user.setEmail("nrg54772@gmail.com");
+        user.setName("nrg54772");
+
+        userRepository.save(user);
+
+        Users user2 = userRepository.findById(1L).orElseThrow(RuntimeException::new);
+        user2.setName("nrggggggg5477");
+
+        userRepository.save(user2);
+
+        userRepository.deleteById(4L);
+    }
+
+    @Test
+    void prePersistTest() {
+        Users user = new Users();
+        user.setEmail("nrg54772@gmail.com");
+        user.setName("nrg54772");
+//        user.setCreatedAt(LocalDateTime.now());
+//        user.setUpdatedAt(LocalDateTime.now());
+
+        userRepository.save(user);
+
+        System.out.println(userRepository.findByEmail("nrg54772@gmail.com"));
+    }
+
+    @Test
+    void updateTest() {
+        Users user = userRepository.findById(1L).orElseThrow(RuntimeException::new);
+
+        System.out.println("as-is : " + user);
+
+        user.setName("nrg54772");
+        userRepository.save(user);
+
+        System.out.println("to-be : " + userRepository.findAll().get(0));
+    }
 }
+

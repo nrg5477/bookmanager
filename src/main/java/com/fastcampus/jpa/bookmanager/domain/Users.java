@@ -13,7 +13,8 @@ import java.util.List;
 @Builder
 @Entity //해당 객체가 JPA에서 관리하는 엔티티 객체임을 알림.
 @Table
-public class Users {
+@EntityListeners(value = MyEntityListener.class)
+public class Users implements Auditable{
     @Id //entity에는 pk가 필요함.
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -40,5 +41,16 @@ public class Users {
     @OneToMany(fetch = FetchType.EAGER)
     private List<Address> address;
 
-    //
+//    @PrePersist //insert전 , 자동으로 업데이트되게할 목적으로 사용.
+//    public void prePersist() {
+//        this.createdAt = LocalDateTime.now();
+//        this.updatedAt = LocalDateTime.now();
+//    }
+//
+//
+//
+//    @PreUpdate //update전
+//    public void preUpdate() {
+//        this.updatedAt = LocalDateTime.now();
+//    }
 }
