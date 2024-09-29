@@ -1,9 +1,8 @@
-package com.fastcampus.jpa.bookmanager.domain;
+package com.fastcampus.jpa.bookmanager.domain.listener;
 
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 
-import java.awt.print.Book;
 import java.time.LocalDateTime;
 
 public class MyEntityListener {

@@ -25,6 +25,9 @@ class UsersRepositoryTest {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private UserHistoryRepository userHistoryRepository;
+
     @Test
     void crud() {
         //List<Users> users = userRepository.findAll(Sort.by(Sort.Direction.DESC, "name"));
@@ -226,6 +229,19 @@ class UsersRepositoryTest {
         userRepository.save(user);
 
         System.out.println("to-be : " + userRepository.findAll().get(0));
+    }
+
+    @Test
+    void userHistoryTest() {
+        Users user = new Users();
+        user.setEmail("nrg54772@gmail.com");
+        user.setName("nrg5477-new");
+        userRepository.save(user);
+
+        user.setName("nrg5477-new-new");
+        userRepository.save(user);
+
+        userHistoryRepository.findAll().forEach(System.out::println);
     }
 }
 
