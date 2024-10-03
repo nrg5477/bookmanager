@@ -17,7 +17,7 @@ import java.util.List;
 @Entity //해당 객체가 JPA에서 관리하는 엔티티 객체임을 알림.
 @Table
 @EntityListeners(value = {UserEntityListener.class})
-public class Users extends BaseEntity implements Auditable {
+public class Users extends BaseEntity {
     @Id //entity에는 pk가 필요함.
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
